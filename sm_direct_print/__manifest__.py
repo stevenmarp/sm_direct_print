@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Copyright 2026 Steven Marp
 {
-    "name": "Direct Print | Thermal Label & Receipt Printer via QZ Tray",
+    "name": "Direct Print - Thermal Label & Receipt Printer via QZ Tray",
     "version": "18.0.1.0.0",
-    "summary": "Print labels & receipts directly to Zebra, TSC, Epson, thermal printer — ZPL, ESC/POS, no IoT Box",
+    "summary": "Print labels & receipts directly to Zebra, TSC, Epson, thermal printer - ZPL, ESC/POS, no IoT Box",
     "description": """
-Direct Print | Thermal Label & Receipt Printer via QZ Tray
+Direct Print - Thermal Label & Receipt Printer via QZ Tray
 ============================================================
 
 Print labels and receipts directly to thermal printers without downloading

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Dashboard Client Action (must be defined before menu references it) -->
+    <record id="print_dashboard_action" model="ir.actions.client">
+        <field name="name">Print Dashboard</field>
+        <field name="tag">sm_direct_print.print_dashboard</field>
+    </record>
+
+    <!-- Top-level Menu -->
+    <menuitem id="menu_direct_print_root"
+              name="Direct Print"
+              web_icon="sm_direct_print,static/description/icon.png"
+              sequence="200"/>
+
+    <!-- Dashboard -->
+    <menuitem id="menu_print_dashboard"
+              name="Dashboard"
+              parent="menu_direct_print_root"
+              action="print_dashboard_action"
+              sequence="10"/>
+
+    <!-- Print History -->
+    <menuitem id="menu_print_jobs"
+              name="Print History"
+              parent="menu_direct_print_root"
+              action="print_job_action"
+              sequence="20"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_direct_print_config"
+              name="Configuration"
+              parent="menu_direct_print_root"
+              sequence="90"/>
+
+    <menuitem id="menu_printers"
+              name="Printers"
+              parent="menu_direct_print_config"
+              action="direct_printer_action"
+              sequence="10"/>
+
+    <menuitem id="menu_label_templates"
+              name="Label Templates"
+              parent="menu_direct_print_config"
+              action="label_template_action"
+              sequence="20"/>
+
+</odoo>

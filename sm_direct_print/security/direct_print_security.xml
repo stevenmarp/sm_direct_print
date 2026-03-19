@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Module Category -->
+    <record id="module_category_direct_print" model="ir.module.category">
+        <field name="name">Direct Print</field>
+        <field name="description">Direct thermal printing via QZ Tray</field>
+        <field name="sequence">200</field>
+    </record>
+
+    <!-- User Group -->
+    <record id="group_direct_print_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_direct_print"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="group_direct_print_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_direct_print"/>
+        <field name="implied_ids" eval="[(4, ref('group_direct_print_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Record Rules -->
+    <record id="rule_printer_company" model="ir.rule">
+        <field name="name">Printer: Company</field>
+        <field name="model_id" ref="model_direct_printer"/>
+        <field name="domain_force">[('company_id', 'in', [False, company_id])]</field>
+        <field name="groups" eval="[(4, ref('group_direct_print_user'))]"/>
+    </record>
+
+    <record id="rule_template_company" model="ir.rule">
+        <field name="name">Label Template: Company</field>
+        <field name="model_id" ref="model_direct_print_label_template"/>
+        <field name="domain_force">[('company_id', 'in', [False, company_id])]</field>
+        <field name="groups" eval="[(4, ref('group_direct_print_user'))]"/>
+    </record>
+
+    <record id="rule_print_job_user" model="ir.rule">
+        <field name="name">Print Job: Own Jobs</field>
+        <field name="model_id" ref="model_direct_print_job"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_direct_print_user'))]"/>
+    </record>
+
+    <record id="rule_print_job_manager" model="ir.rule">
+        <field name="name">Print Job: All (Manager)</field>
+        <field name="model_id" ref="model_direct_print_job"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_direct_print_manager'))]"/>
+    </record>
+
+</odoo>

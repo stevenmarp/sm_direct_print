@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Printer List View -->
+    <record id="direct_printer_view_list" model="ir.ui.view">
+        <field name="name">direct.printer.list</field>
+        <field name="model">direct.printer</field>
+        <field name="arch" type="xml">
+            <list string="Printers" decoration-success="is_default">
+                <field name="name"/>
+                <field name="device_name"/>
+                <field name="printer_type"/>
+                <field name="printer_language"/>
+                <field name="dpi"/>
+                <field name="label_width"/>
+                <field name="label_height"/>
+                <field name="is_default"/>
+                <field name="print_job_count" string="Jobs"/>
+                <field name="last_print_date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Printer Form View -->
+    <record id="direct_printer_view_form" model="ir.ui.view">
+        <field name="name">direct.printer.form</field>
+        <field name="model">direct.printer</field>
+        <field name="arch" type="xml">
+            <form string="Printer">
+                <header>
+                    <button name="action_test_print" type="object"
+                            string="Send Test Label" class="btn-primary"
+                            icon="fa-print"/>
+                    <button name="set_as_default" type="object"
+                            string="Set as Default" class="btn-secondary"
+                            invisible="is_default" icon="fa-star"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_print_jobs" type="object"
+                                class="oe_stat_button" icon="fa-history">
+                            <field name="print_job_count" widget="statinfo" string="Print Jobs"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Default" bg_color="text-bg-success"
+                            invisible="not is_default"/>
+                    <group>
+                        <group string="Printer Info">
+                            <field name="name" placeholder="e.g., Warehouse Zebra GK420t"/>
+                            <field name="device_name" placeholder="e.g., ZDesigner GK420t"/>
+                            <field name="printer_type"/>
+                            <field name="printer_language"/>
+                        </group>
+                        <group string="Label Settings">
+                            <field name="dpi"/>
+                            <field name="label_width"/>
+                            <field name="label_height"/>
+                            <field name="is_default"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Setup Guide" name="setup">
+                            <div class="alert alert-info" role="alert">
+                                <h5><i class="fa fa-windows me-1"/> Windows / Mac Setup (QZ Tray)</h5>
+                                <ol>
+                                    <li>Download &amp; install <b>QZ Tray</b> from <a href="https://qz.io/download/" target="_blank">qz.io/download</a></li>
+                                    <li>Make sure QZ Tray is running (check system tray icon)</li>
+                                    <li>Open <b>Control Panel → Devices and Printers</b></li>
+                                    <li>Note the exact printer name (e.g., <code>ZDesigner GK420t</code>)</li>
+                                    <li>Enter that name in the <b>Device Name</b> field above</li>
+                                </ol>
+                                <p class="mb-0"><small class="text-muted">
+                                    Labels are sent directly from the browser to the user's local USB printer.
+                                    No server-side printer access needed.
+                                </small></p>
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                                <h5><i class="fa fa-linux me-1"/> Linux Setup (CUPS)</h5>
+                                <ol>
+                                    <li>Run <code>lpstat -p</code> in terminal to list printers</li>
+                                    <li>Copy the printer name</li>
+                                    <li>Set <b>Print Method</b> to "CUPS" and enter the name</li>
+                                </ol>
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                                <h5><i class="fa fa-globe me-1"/> Network Printer</h5>
+                                <ol>
+                                    <li>Find printer's IP address (print config label on printer)</li>
+                                    <li>Set <b>Print Method</b> to "Network"</li>
+                                    <li>Enter <code>IP:9100</code> (e.g., <code>192.168.1.100:9100</code>)</li>
+                                </ol>
+                            </div>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Any notes about this printer..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Printer Action -->
+    <record id="direct_printer_action" model="ir.actions.act_window">
+        <field name="name">Printers</field>
+        <field name="res_model">direct.printer</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add your first thermal printer
+            </p>
+            <p>
+                Configure Zebra or other thermal printers for direct label printing.
+                Supports USB (via QZ Tray), CUPS (Linux), and network printers.
+            </p>
+        </field>
+    </record>
+
+</odoo>

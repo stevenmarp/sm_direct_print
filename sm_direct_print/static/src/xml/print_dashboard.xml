@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="sm_direct_print.PrintDashboard">
+        <div class="o_print_dashboard p-4">
+            <!-- Loading -->
+            <div t-if="state.loading" class="text-center p-5">
+                <i class="fa fa-spinner fa-spin fa-3x text-muted"/>
+            </div>
+
+            <div t-if="!state.loading and state.data">
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="mb-0">
+                        <i class="fa fa-print me-2 text-primary"/>
+                        Print Dashboard
+                    </h2>
+                    <div>
+                        <button class="btn btn-primary me-2" t-on-click="openPrinters">
+                            <i class="fa fa-cog me-1"/> Printers
+                        </button>
+                        <button class="btn btn-outline-primary me-2" t-on-click="openTemplates">
+                            <i class="fa fa-th me-1"/> Templates
+                        </button>
+                        <button class="btn btn-outline-secondary" t-on-click="loadData">
+                            <i class="fa fa-refresh me-1"/> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-2">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 fw-bold text-primary">
+                                    <t t-esc="state.data.jobs_today"/>
+                                </div>
+                                <div class="text-muted small">Jobs Today</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 fw-bold text-success">
+                                    <t t-esc="state.data.labels_today"/>
+                                </div>
+                                <div class="text-muted small">Labels Today</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 fw-bold text-info">
+                                    <t t-esc="state.data.jobs_week"/>
+                                </div>
+                                <div class="text-muted small">Jobs This Week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 fw-bold" t-attf-class="{{state.data.errors_today > 0 ? 'text-danger' : 'text-muted'}}">
+                                    <t t-esc="state.data.errors_today"/>
+                                </div>
+                                <div class="text-muted small">Errors Today</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card border-0 shadow-sm h-100 cursor-pointer" t-on-click="openPrinters">
+                            <div class="card-body text-center">
+                                <div class="fs-1 fw-bold text-warning">
+                                    <t t-esc="state.data.printers"/>
+                                </div>
+                                <div class="text-muted small">Printers</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card border-0 shadow-sm h-100 cursor-pointer" t-on-click="openTemplates">
+                            <div class="card-body text-center">
+                                <div class="fs-1 fw-bold text-secondary">
+                                    <t t-esc="state.data.templates"/>
+                                </div>
+                                <div class="text-muted small">Templates</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Print Jobs -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fa fa-history me-2"/> Recent Print Jobs
+                        </h5>
+                        <button class="btn btn-sm btn-outline-primary" t-on-click="openPrintHistory">
+                            View All
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0" t-if="state.data.recent_jobs.length">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Job</th>
+                                    <th>Printer</th>
+                                    <th>User</th>
+                                    <th class="text-center">Labels</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="state.data.recent_jobs" t-as="job" t-key="job.id">
+                                    <td class="text-muted small"><t t-esc="job.date"/></td>
+                                    <td><t t-esc="job.job_name"/></td>
+                                    <td><t t-esc="job.printer"/></td>
+                                    <td><t t-esc="job.user"/></td>
+                                    <td class="text-center"><t t-esc="job.label_count"/></td>
+                                    <td class="text-center">
+                                        <span t-att-class="getStateClass(job.state)">
+                                            <t t-esc="getStateLabel(job.state)"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div t-if="!state.data.recent_jobs.length" class="text-center p-4 text-muted">
+                            <i class="fa fa-inbox fa-2x mb-2"/><br/>
+                            No print jobs yet. Configure a printer and print your first label!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

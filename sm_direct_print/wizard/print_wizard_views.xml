@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Print Wizard Form View -->
+    <record id="print_wizard_view_form" model="ir.ui.view">
+        <field name="name">direct.print.wizard.form</field>
+        <field name="model">direct.print.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Print Labels">
+                <group>
+                    <field name="printer_id" options="{'no_create': True}"/>
+                    <field name="template_id"
+                           domain="[('model_name', '=', model_name)]"
+                           options="{'no_create': True}"/>
+                    <field name="copies"/>
+                    <field name="model_name" invisible="1"/>
+                    <field name="record_ids_str" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_print" type="object"
+                            string="Print" class="btn-primary" icon="fa-print"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Print Wizard Action -->
+    <record id="print_wizard_action" model="ir.actions.act_window">
+        <field name="name">Direct Print</field>
+        <field name="res_model">direct.print.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

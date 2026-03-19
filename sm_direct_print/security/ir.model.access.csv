@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_printer_user,direct.printer.user,model_direct_printer,group_direct_print_user,1,0,0,0
+access_printer_manager,direct.printer.manager,model_direct_printer,group_direct_print_manager,1,1,1,1
+access_template_user,direct.print.label.template.user,model_direct_print_label_template,group_direct_print_user,1,0,0,0
+access_template_manager,direct.print.label.template.manager,model_direct_print_label_template,group_direct_print_manager,1,1,1,1
+access_element_user,direct.print.label.element.user,model_direct_print_label_element,group_direct_print_user,1,0,0,0
+access_element_manager,direct.print.label.element.manager,model_direct_print_label_element,group_direct_print_manager,1,1,1,1
+access_job_user,direct.print.job.user,model_direct_print_job,group_direct_print_user,1,1,1,0
+access_job_manager,direct.print.job.manager,model_direct_print_job,group_direct_print_manager,1,1,1,1
+access_wizard_user,direct.print.wizard.user,model_direct_print_wizard,group_direct_print_user,1,1,1,1

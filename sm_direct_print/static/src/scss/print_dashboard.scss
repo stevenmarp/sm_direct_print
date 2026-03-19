@@ -1,0 +1,44 @@
+.o_print_dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .card {
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+        &.cursor-pointer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+        }
+    }
+
+    .fs-1 {
+        font-size: 2.5rem !important;
+    }
+
+    .table {
+        th {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        td {
+            vertical-align: middle;
+        }
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.35em 0.65em;
+    }
+}
+
+.o_label_preview {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.o_direct_print_action {
+    min-height: 300px;
+}

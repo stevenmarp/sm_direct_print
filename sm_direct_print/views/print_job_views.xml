@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Print Job List View -->
+    <record id="print_job_view_list" model="ir.ui.view">
+        <field name="name">direct.print.job.list</field>
+        <field name="model">direct.print.job</field>
+        <field name="arch" type="xml">
+            <list string="Print Jobs" decoration-danger="state == 'error'"
+                  decoration-success="state == 'success'">
+                <field name="create_date" string="Date"/>
+                <field name="job_name"/>
+                <field name="printer_id"/>
+                <field name="template_id"/>
+                <field name="user_id"/>
+                <field name="record_count"/>
+                <field name="label_count"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'success'"
+                       decoration-info="state == 'sent'"
+                       decoration-danger="state == 'error'"/>
+                <field name="print_method"/>
+                <field name="duration_ms" string="Duration"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Print Job Form View -->
+    <record id="print_job_view_form" model="ir.ui.view">
+        <field name="name">direct.print.job.form</field>
+        <field name="model">direct.print.job</field>
+        <field name="arch" type="xml">
+            <form string="Print Job" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="job_name"/>
+                            <field name="printer_id"/>
+                            <field name="template_id"/>
+                            <field name="user_id"/>
+                            <field name="create_date"/>
+                        </group>
+                        <group>
+                            <field name="state" widget="badge"/>
+                            <field name="print_method"/>
+                            <field name="record_count"/>
+                            <field name="label_count"/>
+                            <field name="copies"/>
+                            <field name="duration_ms"/>
+                            <field name="ip_address"/>
+                        </group>
+                    </group>
+                    <group string="Model / Records" invisible="not model_name">
+                        <field name="model_name"/>
+                        <field name="record_ids"/>
+                    </group>
+                    <group string="Error" invisible="state != 'error'">
+                        <field name="error_message"/>
+                    </group>
+                    <group string="ZPL Data" invisible="not zpl_data">
+                        <field name="zpl_data" widget="ace" options="{'mode': 'text'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Print Job Action -->
+    <record id="print_job_action" model="ir.actions.act_window">
+        <field name="name">Print History</field>
+        <field name="res_model">direct.print.job</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No print jobs yet
+            </p>
+            <p>
+                Print jobs will appear here after you print labels.
+            </p>
+        </field>
+    </record>
+
+</odoo>

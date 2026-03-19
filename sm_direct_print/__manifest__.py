@@ -2,7 +2,7 @@
 # Copyright 2026 Steven Marp
 {
     "name": "Direct Print - Thermal Label & Receipt Printer via QZ Tray",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Print labels & receipts directly to Zebra, TSC, Epson, thermal printer - ZPL, ESC/POS, no IoT Box",
     "description": """
 Direct Print - Thermal Label & Receipt Printer via QZ Tray

@@ -108,6 +108,6 @@ Author: Steven Marp
     "installable": True,
     "application": True,
     "auto_install": False,
-    "price": 199.00,
+    "price": 149.00,
     "currency": "USD",
 }

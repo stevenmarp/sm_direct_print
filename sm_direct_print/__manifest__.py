@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # Copyright 2026 Steven Marp
 {
-    "name": "Direct Print - Thermal Label & Receipt Printer via QZ Tray",
+    "name": "Direct Print - Thermal Labels & Raw Printer Output via QZ Tray",
     "version": "19.0.1.0.0",
-    "summary": "Print labels & receipts directly to Zebra, TSC, Epson, thermal printer - ZPL, ESC/POS, no IoT Box",
+    "summary": "Print product labels and raw printer output through QZ Tray, CUPS, or network printers - ZPL, ESC/POS, no IoT Box",
     "description": """
-Direct Print - Thermal Label & Receipt Printer via QZ Tray
+Direct Print - Thermal Labels & Raw Printer Output via QZ Tray
 ============================================================
 
-Print labels and receipts directly to thermal printers without downloading
-PDF files. Uses QZ Tray to send raw commands from the browser to USB
+Print product labels and raw printer output directly to thermal printers
+without downloading PDF files. Uses QZ Tray to send raw commands from the browser to USB
 or network printers.
 
 Supported Printer Languages
@@ -19,7 +19,7 @@ Supported Printer Languages
 * **TSPL** — TSC (TTP-245C, TE200, TE300, etc.)
 * **CPCL** — Zebra mobile printers (QL, ZQ series)
 * **DPL** — Datamax / Honeywell
-* **ESC/POS** — Epson, Star, Bixolon, receipt/POS printers
+* **ESC/POS** — Epson, Star, Bixolon, and compatible thermal printers
 * **Raw Text** — Any printer accepting plain text
 
 Key Features
@@ -36,13 +36,19 @@ Key Features
 * **Copy Control** — Configure number of copies per label
 * **OWL Dashboard** — Print stats, recent jobs, printer status
 
+Odoo POS Compatibility
+----------------------
+This version does not include direct integration with the Odoo POS interface
+or automatic receipt printing after POS payment/order validation. Automatic
+Odoo POS receipt printing requires a separate POS integration.
+
 Requirements
 ------------
 * QZ Tray installed on user's PC (free download: https://qz.io/download/)
 * Printer connected via USB or network
 
 Keywords: Direct Print | Odoo Direct Print | Zebra Print | Thermal Printer |
-ZPL Print | ESC/POS Print | Label Print | Receipt Printer | QZ Tray |
+ZPL Print | ESC/POS Print | Label Print | Raw Printer Output | QZ Tray |
 QZ Tray Odoo | Odoo QZ Tray | Print Without Download | Print Directly |
 Print Labels from Odoo | Barcode Print | Shipping Label Print | Product Label |
 Thermal Label Printing | ZPL Label Designer | Zebra Label Odoo | Odoo Label Printing |
@@ -50,7 +56,7 @@ Print from Odoo | Direct Print Pro | Odoo Print Module | Print Directly from Odo
 Odoo Printing Solution | Local Printer Integration | Network Printer |
 USB Printer | Wi-Fi Printer | Bluetooth Printer | Printer Integration |
 Print Without Downloading | Print Without PDF | IoTBox Free Print | IoT Box Alternative |
-No IoT Box | PrintNode Alternative | Print Automation | Auto Print |
+No IoT Box | PrintNode Alternative | Raw Print Output |
 Fast Printing from Odoo | Quick Print | One-Click Print | Seamless Print |
 ZPL Printer Support | Zebra Printer Odoo | TSC Printer | Epson Printer |
 Star Printer | Bixolon Printer | Honeywell Printer | Datamax Printer |

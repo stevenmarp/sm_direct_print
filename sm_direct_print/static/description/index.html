@@ -15,11 +15,11 @@
                     QZ Tray Printing
                 </div>
                 <h1 style="font-size:44px; color:#152962; font-weight:800; font-family:system-ui;">
-                    Direct Print <span style="color:#fbaf3d;">Labels &amp; Receipts</span>
+                    Direct Print <span style="color:#fbaf3d;">Labels &amp; Raw Printing</span>
                 </h1>
                 <p style="font-size:16px; color:#514F4F; max-width:820px; margin:0 auto;">
-                    Print raw labels and receipts directly from Odoo to Zebra, TSC, Epson, Star, Honeywell,
-                    Bixolon, CUPS, and network printers without downloading PDF files.
+                    Print product labels, barcodes, QR codes, and raw printer output directly from Odoo to
+                    Zebra, TSC, Epson, Star, Honeywell, Bixolon, CUPS, and network printers.
                 </p>
             </div>
         </div>
@@ -111,7 +111,7 @@
                 <h2 style="font-size:36px; color:#0E2D59;" class="font-weight-bold mb-2">
                     Direct Print Features
                 </h2>
-                <p style="font-size:18px; font-family:system-ui; margin-top:-5px;">Everything needed for thermal printer workflows in Odoo</p>
+                <p style="font-size:18px; font-family:system-ui; margin-top:-5px;">Tools for product labels and raw thermal printer workflows in Odoo</p>
             </div>
             <div class="row mt-4 mb-4 ml-4 mr-4 justify-content-center">
                 <div class="col-lg-4" style="padding:8px;">
@@ -146,11 +146,27 @@
                 </div>
                 <div class="col-lg-4" style="padding:8px;">
                     <div class="shadow" style="padding:18px; background:#ffffff; min-height:128px; border-radius:8px;">
-                        <h4 style="color:#152962; font-size:18px; font-weight:800;">Multi Language</h4>
-                        <span style="font-size:14px;">ZPL, EPL, TSPL, CPCL, DPL, ESC/POS, and raw text.</span>
+                        <h4 style="color:#152962; font-size:18px; font-weight:800;">Printer Languages</h4>
+                        <span style="font-size:14px;">ZPL, EPL, TSPL, CPCL, DPL, ESC/POS, and raw text output.</span>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row mb-5 p-3 py-5 bg-light shadow" style="border-radius:20px;">
+        <div class="col-lg-10 mx-auto text-center">
+            <div style="width:fit-content; padding:2px 10px; color:#ffffff; background:#ea5545; border-radius:20px; font-size:12px; margin:0 auto 16px;">Important Compatibility Note</div>
+            <h2 style="font-size:34px; color:#152962;" class="font-weight-bold mb-3">
+                Raw ESC/POS Printing, Not Automatic Odoo POS Receipts
+            </h2>
+            <p style="font-size:16px; color:#514F4F; margin-bottom:12px;">
+                This version can send raw ESC/POS data to compatible thermal printers through QZ Tray, CUPS, or network printing.
+                It does not automatically print an Odoo POS receipt after payment or order validation.
+            </p>
+            <p style="font-size:16px; color:#514F4F; margin-bottom:0;">
+                Automatic Odoo POS receipt printing requires a separate POS integration and is not included in this version.
+            </p>
         </div>
     </div>
 
@@ -170,7 +186,7 @@
                     <div class="row">
                         <div class="col-md-4 mb-3"><div class="shadow bg-white p-4" style="border-radius:8px; min-height:120px;"><h4 style="color:#152962; font-size:18px; font-weight:800;">ZPL</h4><div style="font-size:14px;">Zebra GK, ZD, ZT, and compatible label printers.</div></div></div>
                         <div class="col-md-4 mb-3"><div class="shadow bg-white p-4" style="border-radius:8px; min-height:120px;"><h4 style="color:#152962; font-size:18px; font-weight:800;">TSPL / EPL</h4><div style="font-size:14px;">TSC, Eltron, and legacy Zebra printers.</div></div></div>
-                        <div class="col-md-4 mb-3"><div class="shadow bg-white p-4" style="border-radius:8px; min-height:120px;"><h4 style="color:#152962; font-size:18px; font-weight:800;">ESC/POS</h4><div style="font-size:14px;">Epson, Star, Bixolon, receipt and POS printers.</div></div></div>
+                        <div class="col-md-4 mb-3"><div class="shadow bg-white p-4" style="border-radius:8px; min-height:120px;"><h4 style="color:#152962; font-size:18px; font-weight:800;">ESC/POS Raw Output</h4><div style="font-size:14px;">Epson, Star, Bixolon, and other ESC/POS-compatible thermal hardware.</div></div></div>
                     </div>
                 </div>
             </div>

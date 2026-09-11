@@ -36,11 +36,11 @@ Key Features
 * **Copy Control** — Configure number of copies per label
 * **OWL Dashboard** — Print stats, recent jobs, printer status
 
-Odoo POS Compatibility
-----------------------
-This version does not include direct integration with the Odoo POS interface
-or automatic receipt printing after POS payment/order validation. Automatic
-Odoo POS receipt printing requires a separate POS integration.
+Receipt Automation Compatibility
+--------------------------------
+This version does not include direct integration with Odoo's sales terminal
+or automatic receipt printing after payment/order validation. Automatic
+receipt printing requires a separate integration.
 
 Requirements
 ------------
